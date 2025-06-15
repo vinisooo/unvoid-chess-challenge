@@ -22,6 +22,9 @@ class PoPiece extends Piece {
       [this.xPosition, this.yPosition - 1],
 
       // diagonal top-left
+      [this.xPosition - 1, this.yPosition + 1],
+
+      // diagonal top-right
       [this.xPosition + 1, this.yPosition + 1],
 
       // diagonal bottom-right
