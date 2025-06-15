@@ -1,0 +1,27 @@
+<div class="cell-col">
+  @let reversedMatrix = getReversedMatrix();
+  @for (row of reversedMatrix; let rowIndex = $index; track rowIndex) {
+    <div class="cell-row">
+      @for (cell of row; let colIndex = $index; track colIndex) {
+
+        @let isWhite = ((matrix.length - 1 - rowIndex) + colIndex) % 2 === 0;
+        @let isFromSameColor = selectedPiece?.color === currentPlayer;
+        @let isSelectable = isFromSameColor && isCellSelectable((matrix.length - 1 - rowIndex), colIndex);
+
+        <div class="cell"
+        [ngClass]="{
+          white: isWhite,
+          black: !isWhite,
+          selected: (matrix.length - 1 - rowIndex) === selectedPiece?.yPosition && colIndex === selectedPiece?.xPosition,
+          selectable: isSelectable
+        }"
+        (click)="handleCellClick(matrix.length - 1 - rowIndex, colIndex)"
+      >
+          @if (cell?.piece) {
+            <img [src]="cell?.piece?.getImage()" />
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

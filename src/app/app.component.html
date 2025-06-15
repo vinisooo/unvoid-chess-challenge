@@ -1,0 +1,36 @@
+<main class="page">
+  <div class="page-container">
+    <div class="glass-container chess-board" [ngClass]="{
+      'not-running': !isGameRunning
+    }">
+      <app-chess-board (finishGame)="onGameFinish($event)" [xAxisDimension]="xAxisDimension" [yAxisDimension]="yAxisDimension"></app-chess-board>
+    </div>
+  
+    <div class="form-wrapper">
+      <form class="glass-container dimension-sel-form" [ngClass]="{
+        'not-running': isGameRunning
+      }">
+        <p class="form-title">
+          Scale
+        </p>
+        <div class="input">
+          <label for="xAxisDimension">X</label>
+          <input class="glass-container input" id="xAxisDimension" min="6" max="12" step="2" name="xAxisDimension" type="number" [(ngModel)]="xAxisDimension">
+        </div>
+        <div class="input">
+          <label for="yAxisDimension">Y</label>
+          <input class="glass-container input" id="yAxisDimension" min="6" max="12" step="2" name="yAxisDimension" type="number" [(ngModel)]="yAxisDimension">
+        </div>
+        <!-- TODO: put icon and event -->
+        <!-- <button class="confirm-btn">
+          <span class="material-symbols-outlined">check</span>
+        </button> -->
+      </form>
+      <button class="btn play-btn" [ngClass]="{
+        'not-running': isGameRunning
+      }" (click)="isGameRunning = true">
+        Play
+      </button>
+    </div>
+  </div>
+</main>

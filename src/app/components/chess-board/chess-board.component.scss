@@ -1,0 +1,43 @@
+.white {
+	background-color: gray; // TODO: Change to gradient
+}
+
+.black {
+	background-color: black; // TODO: Change to gradient
+}
+
+.cell-col {
+	display: flex;
+	flex-direction: column;
+
+	.cell-row {
+		display: flex;
+
+		.cell {
+			width: 100px;
+			height: 100px;
+
+			display: flex;
+
+			align-items:center;
+			justify-content: center;
+
+			img{
+				width: 50px;
+				height: 65px;
+			}
+
+			transition: 0.5s ease;
+			cursor: pointer
+		}
+		.cell.selected {
+			background-color: lightsalmon;
+		}
+		.cell.selectable {
+			background-color: orange;
+		}
+		.cell:hover{
+			filter: brightness(1.2);
+		}
+	}
+}
